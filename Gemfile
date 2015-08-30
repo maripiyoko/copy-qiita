@@ -10,7 +10,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '>= 3.0.3.0'
 gem 'font-awesome-rails', '~> 4.0.1.0'
-gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
 gem 'simple_form'
@@ -26,6 +25,12 @@ gem "gretel"
 gem "kaminari"
 gem 'meta-tags', :require => 'meta_tags'
 gem 'sprockets', '2.11.0'
+
+# auth
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'config'
 
 group :development do
   gem 'better_errors'
