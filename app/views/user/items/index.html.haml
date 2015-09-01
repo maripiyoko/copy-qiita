@@ -1,0 +1,12 @@
+%h2="#{current_user.nickname}の投稿一覧"
+
+%table.table
+  %thead
+    %tr
+      %th タイトル
+      %th 内容
+      %th
+  %tbody
+    = render @items
+
+= link_to 'Create New Item', new_user_item_path
