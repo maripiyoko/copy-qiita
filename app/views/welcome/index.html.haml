@@ -1,1 +1,8 @@
-%h1 Welcome
+%h1 Welcome To Qiita copy app
+
+- if user_signed_in?
+  %p
+    ="Hello #{current_user.nickname} !"
+- else
+  %p
+    = link_to 'Sign in with Github', user_omniauth_authorize_path(:github)
