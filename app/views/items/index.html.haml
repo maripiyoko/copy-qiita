@@ -1,0 +1,14 @@
+%h1 すべての投稿
+
+- if user_signed_in?
+  .user-actions
+    %p
+      = link_to 'Create New Item', new_user_item_path
+
+%table.table
+  %thead
+    %tr
+      %th タイトル
+      %th 内容
+  %tbody
+    = render @items

@@ -2,9 +2,12 @@
 
 - if user_signed_in?
   %p
-    ="Hello #{current_user.nickname} !"
+    ="#{current_user.nickname} さんこんにちは!"
   %p
     = link_to 'Create New Item', new_user_item_path
+  %p
+    = link_to '記事一覧を見る', items_path
 - else
   %p
+    投稿するにはログインが必要です。
     = link_to 'Sign in with Github', user_omniauth_authorize_path(:github)
