@@ -3,4 +3,8 @@ CopyQiita::Application.routes.draw do
 
   root 'welcome#index'
   get 'home', to: 'home#show'
+
+  namespace :user do
+    resources :items
+  end
 end
