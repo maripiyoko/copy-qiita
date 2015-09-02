@@ -1,0 +1,4 @@
+- if @item.stocked?
+  = link_to 'ストック解除', stock_destroy_path(@item), method: :delete, remote: true
+- else
+  = link_to 'ストックする', stock_create_path(@item), method: :post, remote: true

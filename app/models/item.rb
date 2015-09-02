@@ -5,4 +5,10 @@ class Item < ActiveRecord::Base
 
   validate :title, presence: true
   validate :contents, presence: true
+
+  def stocked?
+    if self.user.stocks.find_by_item_id(self.id)
+      true
+    end
+  end
 end
