@@ -45,6 +45,7 @@ GEM
     bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
     builder (3.1.4)
+    callsite (0.0.11)
     capybara (2.2.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -122,6 +123,7 @@ GEM
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     fssm (0.2.10)
+    git-version-bump (0.15.1)
     gretel (3.0.5)
       rails (>= 3.2.0)
     guard (2.2.5)
@@ -190,6 +192,10 @@ GEM
       treetop (~> 1.4.8)
     meta-tags (1.5.0)
       actionpack
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
@@ -228,6 +234,9 @@ GEM
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-contrib (1.4.0)
+      git-version-bump (~> 0.15)
+      rack (~> 1.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.4)
@@ -366,6 +375,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   meta-tags
+  meta_request
   omniauth
   omniauth-github
   quiet_assets
