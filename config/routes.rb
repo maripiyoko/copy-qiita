@@ -9,8 +9,9 @@ CopyQiita::Application.routes.draw do
     resources :items
   end
 
-  with_options controller: :stocks do |s|
+  with_options controller: 'user/stocks' do |s|
     s.post 'user/item/:item_id/stocks', to: :create, as: :stock_create
     s.delete 'user/item/:item_id/stocks', to: :destroy, as: :stock_destroy
   end
+
 end
