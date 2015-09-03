@@ -6,6 +6,7 @@ class User::StocksController < ApplicationController
     @stock = current_user.stocks.build(item_id: params[:item_id])
     respond_to do |format|
       if @stock.save
+        @item = Item.find(params[:item_id])
         format.js
       else
         format.js { redirect_to user_items_path(@item) }
@@ -16,6 +17,7 @@ class User::StocksController < ApplicationController
   def destroy
     @stock = current_user.stocks.find_by_item_id(params[:item_id])
     @stock.destroy
+    @item = Item.find(params[:item_id])
     respond_to do |format|
       format.js
     end
