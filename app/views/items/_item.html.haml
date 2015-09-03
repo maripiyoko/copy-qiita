@@ -1,5 +1,8 @@
 %tr
   %td
+    = gravatar_for item.user
+    = item.user.nickname
+  %td
     = link_to item.title, item
   %td
-    = item.contents
+    = distance_of_time_in_words_to_now item.created_at
