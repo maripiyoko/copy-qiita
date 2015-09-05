@@ -6,3 +6,5 @@
     = link_to item.title, item
   %td
     = distance_of_time_in_words_to_now item.created_at
+  %td
+    = item.stocks.size
