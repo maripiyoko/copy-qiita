@@ -1,2 +1,5 @@
 ヘッダー
 %h1=item.title
+
+- if local_assigns.has_key? :greeting
+  %h2= greeting
