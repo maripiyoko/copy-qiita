@@ -1,0 +1,13 @@
+= render 'shared/item_header', item: @item
+//= render partial: 'shared/item_header', locals: { item: @item }
+
+#stock-action
+  = render 'user/stocks/stock_btn'
+
+%h3
+  = @item.title
+
+.contents
+  = simple_format @item.contents
+
+= link_to '投稿一覧へ', items_path

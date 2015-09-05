@@ -1,0 +1,8 @@
+%h1=item.title
+
+.author-info
+  = gravatar_for item.user
+  = "#{item.user.nickname} が #{item.created_at}に投稿しました。"
+
+- if local_assigns.has_key? :greeting
+  %h2= greeting
