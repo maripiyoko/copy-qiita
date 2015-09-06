@@ -1,13 +1,53 @@
-.menu
-  %ul
-    %li
-      - if user_signed_in?
-        = link_to 'Sign out', destroy_user_session_path, method: :delete
-      - else
-        = link_to 'Sign in with Github', user_omniauth_authorize_path(:github)
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{'data-toggle' => 'collapse',
+                                      'data-target' => '#header-navbar-collapse',
+                                      'type' => 'button'}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: '#'} CopyQiita
+    #header-navbar-collapse.collapse.navbar-collapse
+      %form.navbar-form.navbar-left{role: 'search'}
+        .form-group
+          %input.form-control{type: 'text', placeholder: 'Search'}
+        %button.btn.btn-default{type: 'button'} 検索
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{'data-toggle' => 'dropdown',
+                               'href' => '#'}
+              新規作成
+              %span.caret
+            %ul.dropdown-menu{role: 'menu'}
+              %li
+                %a{href: '#'} 投稿する
+              %li
+                %a{href: '#'} 下書き一覧
+          %li
+            %a{href: '#'} ストック一覧
+          %li
+            %a{href: '#'} お知らせ数
+          %li.dropdown
+            %a.dropdown-toggle{'data-toggle' => 'dropdown',
+                               'href' => '#'}
+              Profile
+              %span.caret
+            %ul.dropdown-menu{role: 'menu'}
+              %li
+                %a{href: '#'} マイページ
+              %li
+                %a{href: '#'} 設定
+              %li.divider
+              %li
+                - if user_signed_in?
+                  = link_to 'Sign out', destroy_user_session_path, method: :delete
+                - else
+                  = link_to 'Sign in with Github', user_omniauth_authorize_path(:github)
+        - else
+          %li
+            = link_to 'Sign in with Github', user_omniauth_authorize_path(:github)
 
-.alert
-  .notice
-    = notice
-  .alert
-    = alert
+= render :partial => 'layouts/messages'
