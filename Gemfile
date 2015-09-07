@@ -25,6 +25,7 @@ gem "gretel"
 gem "kaminari"
 gem 'meta-tags', :require => 'meta_tags'
 gem 'sprockets', '2.11.0'
+gem 'redcarpet'
 
 # auth
 gem 'devise'
