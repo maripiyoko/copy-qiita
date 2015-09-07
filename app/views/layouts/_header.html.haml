@@ -8,7 +8,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{href: '#'} CopyQiita
+      = link_to 'CopyQiita', root_path, class: 'navbar-brand'
     #header-navbar-collapse.collapse.navbar-collapse
       %form.navbar-form.navbar-left{role: 'search'}
         .form-group
@@ -37,9 +37,9 @@
               %span.caret
             %ul.dropdown-menu{role: 'menu'}
               %li
-                %a{href: '#'} マイページ
+                = link_to 'マイページ', user_items_path
               %li
-                %a{href: '#'} 設定
+                = link_to '設定', edit_user_registration_path
               %li.divider
               %li
                 - if user_signed_in?

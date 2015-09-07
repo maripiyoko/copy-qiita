@@ -1,13 +1,13 @@
-= render 'shared/item_header', item: @item
-//= render partial: 'shared/item_header', locals: { item: @item }
+.row.col-md-10
+  = render 'shared/item_header', item: @item
+  //= render partial: 'shared/item_header', locals: { item: @item }
 
-#stock-action
-  = render 'user/stocks/stock_btn'
+.row.col-md-2
+  #stock-action
+    = render 'user/stocks/stock_btn'
 
-%h3
-  = @item.title
+.row.col-md-12
+  .contents
+    = simple_format markdown(@item.contents)
 
-.contents
-  = simple_format @item.contents
-
-= link_to '投稿一覧へ', items_path
+  = link_to '投稿一覧へ', items_path
