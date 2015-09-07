@@ -14,7 +14,8 @@ class User::ItemsController < ApplicationController
     @item = current_user.items.build(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to user_item_path(@item), notice: '投稿を作成しました。' }
+        flash[:notice] = '投稿を作成しました。'
+        format.html { redirect_to user_item_path(@item) }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -26,7 +27,8 @@ class User::ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to user_item_path @item, notice: '投稿を更新しました。'}
+        flash[:notice] = '投稿を更新しました。'
+        format.html { redirect_to user_item_path @item }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -38,7 +40,8 @@ class User::ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to user_items_path, notice: '投稿を削除しました。' }
+      flash[:notice] = '投稿を削除しました。'
+      format.html { redirect_to user_items_path }
       format.json { head :no_content }
     end
   end
