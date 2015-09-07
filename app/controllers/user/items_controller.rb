@@ -3,7 +3,7 @@ class User::ItemsController < ApplicationController
   before_action :set_item, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @items = current_user.items
+    @items = current_user.items.page(params[:page])
   end
 
   def new
