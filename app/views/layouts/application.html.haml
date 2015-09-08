@@ -9,8 +9,10 @@
     .header
       = render 'layouts/header'
 
-    .container
-      .row.col-sm-12
-        = render :partial => 'layouts/messages'
-      .row.col-sm-12.main
+    .container-fluid
+      .row
+        .col-sm-12
+          = render :partial => 'layouts/messages'
+      .row
+        .col-sm-12.main
         = yield

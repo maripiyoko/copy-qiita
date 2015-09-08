@@ -1,3 +1,21 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item-header {
+  background-color: #79B74A;
+  color: white;
+  height: 200px;
+  min-height: 200px;
+  padding-top: 20px;
+}
+
+.author-info {
+  margin-top: 20px;
+  position: relative;
+}
+
+.author-name {
+  display: inline-block;
+  vertical-align: bottom;
+}
