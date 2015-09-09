@@ -11,4 +11,9 @@ class Item < ActiveRecord::Base
       true
     end
   end
+
+  def mine?(user)
+    return false unless user
+    self.user.id == user.id
+  end
 end
