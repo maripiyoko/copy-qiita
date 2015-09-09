@@ -19,3 +19,27 @@
   display: inline-block;
   vertical-align: bottom;
 }
+
+.stock-info {
+  width: 33%;
+  margin-bottom: 10px;
+}
+.stock-num {
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  font-size: larger;
+  text-align: center;
+}
+
+.stock-label {
+  text-align: center;
+  font-size: smaller;
+}
+
+.stocked {
+  background-color: #79B74A;
+  border: 1px solid dimgray;
+  color: white;
+  font-weight: bolder;
+}
