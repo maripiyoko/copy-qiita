@@ -28,8 +28,8 @@ class User::ItemsController < ApplicationController
     respond_to do |format|
       if @item.update(item_params)
         flash[:notice] = '投稿を更新しました。'
-        format.html { redirect_to user_item_path @item }
-        format.json { render :show, status: :ok, location: @item }
+        format.html { redirect_to item_path @item }
+        format.json { render 'user/show', status: :ok, location: @item }
       else
         format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }

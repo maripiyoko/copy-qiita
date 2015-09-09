@@ -6,7 +6,7 @@ CopyQiita::Application.routes.draw do
   resources :items, only: [ :show ]
 
   namespace :user do
-    resources :items
+    resources :items, except: [ :show ]
   end
 
   with_options controller: 'user/stocks' do |s|
