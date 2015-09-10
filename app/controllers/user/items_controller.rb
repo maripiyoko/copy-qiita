@@ -10,6 +10,14 @@ class User::ItemsController < ApplicationController
     @item = current_user.items.build
   end
 
+  def preview
+    @title = params[:title]
+    @contents = params[:contents]
+    respond_to do |format|
+      format.js { render 'preview' }
+    end
+  end
+
   def create
     @item = current_user.items.build(item_params)
     respond_to do |format|
