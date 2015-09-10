@@ -3,18 +3,27 @@ class User::ItemsController < ApplicationController
   before_action :set_item, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @items = current_user.items
+    @items = current_user.items.page(params[:page])
   end
 
   def new
     @item = current_user.items.build
   end
 
+  def preview
+    @title = params[:title]
+    @contents = params[:contents]
+    respond_to do |format|
+      format.js { render 'preview' }
+    end
+  end
+
   def create
     @item = current_user.items.build(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to user_item_path(@item), notice: '投稿を作成しました。' }
+        flash[:notice] = '投稿を作成しました。'
+        format.html { redirect_to user_item_path(@item) }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -26,8 +35,9 @@ class User::ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to user_item_path @item, notice: '投稿を更新しました。'}
-        format.json { render :show, status: :ok, location: @item }
+        flash[:notice] = '投稿を更新しました。'
+        format.html { redirect_to item_path @item }
+        format.json { render 'user/show', status: :ok, location: @item }
       else
         format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -38,7 +48,8 @@ class User::ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to user_items_path, notice: '投稿を削除しました。' }
+      flash[:notice] = '投稿を削除しました。'
+      format.html { redirect_to user_items_path }
       format.json { head :no_content }
     end
   end

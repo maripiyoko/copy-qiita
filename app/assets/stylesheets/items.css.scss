@@ -1,3 +1,52 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item-header {
+  background-color: #79B74A;
+  color: white;
+  height: 200px;
+  min-height: 200px;
+  padding-top: 20px;
+}
+
+.author-info {
+  margin: 20px 0;
+  position: relative;
+}
+
+.author-name {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.stock-info {
+  width: 33%;
+  margin-bottom: 10px;
+}
+.stock-num {
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  font-size: larger;
+  text-align: center;
+}
+
+.stock-label {
+  text-align: center;
+  font-size: smaller;
+}
+
+.stocked {
+  background-color: #79B74A;
+  border: 1px solid dimgray;
+  color: white;
+  font-weight: bolder;
+}
+
+.preview-header {
+  margin: 30px;
+}
+.preview-contents {
+  margin: 30px;
+}

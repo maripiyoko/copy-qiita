@@ -8,4 +8,11 @@
   %body
     .header
       = render 'layouts/header'
-    = yield
+
+    .container-fluid
+      .row
+        .col-sm-12
+          = render :partial => 'layouts/messages'
+      .row
+        .col-sm-12.main
+        = yield

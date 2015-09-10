@@ -1,8 +1,19 @@
-%h1=item.title
+.item-header
+  .container
+    .row
+      .col-sm-9
+        .item-header-main
+          %h1=item.title
 
-.author-info
-  = gravatar_for item.user
-  = "#{item.user.nickname} が #{item.created_at}に投稿しました。"
+          .author-info
+            = gravatar_for item.user
+            .author-name
+              = "#{item.user.nickname} が #{item.created_at}に投稿しました。"
+          - if item.mine?(current_user)
+            .my-item-actions
+              = link_to "投稿を編集する", edit_user_item_path(item), class: "btn btn-default"
 
-- if local_assigns.has_key? :greeting
-  %h2= greeting
+      .col-md-3
+        #stock-action
+          = render 'user/stocks/stock_btn'
+

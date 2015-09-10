@@ -1,4 +1,11 @@
-= simple_form_for [ current_user, @item ] do |f|
-  = f.input :title
-  = f.input :contents
-  = f.submit
+.row
+  .col-sm-6
+    = simple_form_for [ :user, @item ], html: { class: 'form-horizontal' } do |f|
+      .form-inputs
+        = f.input :title, input_html: { class: 'form-control js-update-preview' }
+        = f.input :contents, input_html: { class: 'form-control js-update-preview', rows: 20 }
+        = f.button :submit, class: 'btn btn-primary'
+
+  #item-preview.col-sm-6
+    %h2#preview_title.preview-header= @item.title
+    #preview_contents.preview-contents= simple_format( markdown(@item.contents) )

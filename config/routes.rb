@@ -6,8 +6,10 @@ CopyQiita::Application.routes.draw do
   resources :items, only: [ :show ]
 
   namespace :user do
-    resources :items
+    resources :items, except: [ :show ]
   end
+
+  post '/user/item/preview', to: 'user/items#preview'
 
   with_options controller: 'user/stocks' do |s|
     s.post 'user/item/:item_id/stocks', to: :create, as: :stock_create

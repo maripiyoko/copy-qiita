@@ -1,9 +1,0 @@
-= render 'shared/item_header', { item: @item }
-
-= link_to "#{current_user.nickname}の投稿一覧へ", user_items_path
-
-%h3
-  = @item.title
-%div
-  = simple_format @item.contents
-
