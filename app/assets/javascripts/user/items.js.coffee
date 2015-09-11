@@ -7,7 +7,6 @@ $ ->
     .on('change', '.js-update-preview', ->
       title = $('#item_title').val()
       contents = $('#item_contents').val()
-      alert('change title=' + title + ', contents=' + contents)
       $.ajax(
         type: 'POST',
         url: '/user/item/preview',
