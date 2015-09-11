@@ -2,6 +2,10 @@ class User::StocksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [ :create, :destroy ]
 
+  def index
+    @stocks = current_user.stocks
+  end
+
   def create
     @stock = current_user.stocks.build(item_id: params[:item_id])
     respond_to do |format|

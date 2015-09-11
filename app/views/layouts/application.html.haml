@@ -10,9 +10,7 @@
       = render 'layouts/header'
 
     .container-fluid
-      .row
-        .col-sm-12
-          = render :partial => 'layouts/messages'
+      = render :partial => 'layouts/messages'
       .row
         .col-sm-12.main
         = yield

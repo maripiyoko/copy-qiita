@@ -7,6 +7,7 @@ CopyQiita::Application.routes.draw do
 
   namespace :user do
     resources :items, except: [ :show ]
+    resources :stocks, only: [ :index ]
   end
 
   post '/user/item/preview', to: 'user/items#preview'
